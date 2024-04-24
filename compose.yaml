@@ -19,5 +19,3 @@ networks:
     driver: bridge
     name: tdsi-network # Specify a custom network name for clarity
 
-    # Add a restart policy
-    restart: unless-stopped
