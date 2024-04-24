@@ -17,7 +17,7 @@ services:
 networks:
   tdsi-network:
     driver: bridge
-    name: tdsi-custom-network # Specify a custom network name for clarity
+    name: tdsi-network # Specify a custom network name for clarity
 
     # Add a restart policy
     restart: unless-stopped
