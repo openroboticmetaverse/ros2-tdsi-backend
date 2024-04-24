@@ -6,6 +6,14 @@ RUN apt-get update && \
     apt-get install -y ros-humble-rosbridge-suite && \
     rm -rf /var/lib/apt/lists/*
 
-# (Optional) Set up any necessary environment variables, entrypoint, or default commands
-#ENTRYPOINT ["/ros_entrypoint.sh"]
-#CMD ["bash"]
+# Copy the entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+
+# Make the entrypoint script executable
+RUN chmod +x /entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Set a default command, in case one isn't provided
+CMD ["bash"]

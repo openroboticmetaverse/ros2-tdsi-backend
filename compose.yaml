@@ -4,8 +4,8 @@ services:
   tdsi_ros2_backend:
     container_name: tdsi_ros2_backend
     build:
-      context: .
-      dockerfile: docker/Dockerfile
+      context: ./docker
+      dockerfile: Dockerfile
     ports:
       - "9090:9090" # Default port for ROS2 bridge
     environment:
