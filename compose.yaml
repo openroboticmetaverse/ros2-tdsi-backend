@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  tdsi_ros2_backend:
+    container_name: tdsi_ros2_backend
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "9090:9090" # Default port for ROS2 bridge
+    environment:
+      - ROS_DOMAIN_ID=30 # Specify ROS2 Domain ID
+    tty: true
+    networks:
+      - tdsi-network
+
+networks:
+  tdsi-network:
+    driver: bridge
+    name: tdsi-custom-network # Specify a custom network name for clarity
+
+    # Add a restart policy
+    restart: unless-stopped
