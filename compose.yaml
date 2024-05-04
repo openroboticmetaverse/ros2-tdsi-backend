@@ -14,13 +14,8 @@ services:
       - GROUP=105
     tty: true
     devices:
-      #- "/dev/input/:/dev/input/" # Enable joystick
-      #- "/dev/bus/usb/:/dev/bus/usb/" # Enable USB device
       - "/dev/input/js0:/dev/input/js0" # Enable joystick
-    # volumes:
-    #   #- "/dev/input/:/dev/input/" # Enable joystick
-    #   #- "/dev/bus/usb/:/dev/bus/usb/" # Enable USB device
-    #   - "/dev/input:/dev/input" # Enable joystick
+      - "/dev/input/event23:/dev/input/event23" # Enable joystick
 
     networks:
       - tdsi-network
