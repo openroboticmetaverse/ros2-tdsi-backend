@@ -10,11 +10,17 @@ services:
       - "9090:9090" # Default port for ROS2 bridge
     environment:
       - ROS_DOMAIN_ID=30 # Specify ROS2 Domain ID
+      - USER=0 
+      - GROUP=105
     tty: true
     devices:
       #- "/dev/input/:/dev/input/" # Enable joystick
       #- "/dev/bus/usb/:/dev/bus/usb/" # Enable USB device
       - "/dev/input/js0:/dev/input/js0" # Enable joystick
+    # volumes:
+    #   #- "/dev/input/:/dev/input/" # Enable joystick
+    #   #- "/dev/bus/usb/:/dev/bus/usb/" # Enable USB device
+    #   - "/dev/input:/dev/input" # Enable joystick
 
     networks:
       - tdsi-network

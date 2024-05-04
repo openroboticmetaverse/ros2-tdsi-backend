@@ -1,13 +1,14 @@
 # Use the MoveIt 2 Humble release as the base image
 FROM moveit/moveit2:humble-release
 
+USER 0:105
 # Update and install ROSBridge
 RUN apt-get update && \
     apt-get install -y ros-humble-rosbridge-suite evtest && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the entrypoint script
-COPY docker/entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
 # Make the entrypoint script executable
 RUN chmod +x /entrypoint.sh
