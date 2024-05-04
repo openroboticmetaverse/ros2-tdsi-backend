@@ -11,6 +11,11 @@ services:
     environment:
       - ROS_DOMAIN_ID=30 # Specify ROS2 Domain ID
     tty: true
+    devices:
+      #- "/dev/input/:/dev/input/" # Enable joystick
+      #- "/dev/bus/usb/:/dev/bus/usb/" # Enable USB device
+      - "/dev/input/js0:/dev/input/js0" # Enable joystick
+
     networks:
       - tdsi-network
 
