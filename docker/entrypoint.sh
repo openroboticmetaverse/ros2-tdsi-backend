@@ -8,7 +8,7 @@ ros2 launch rosbridge_server rosbridge_websocket_launch.xml > /var/log/rosbridge
 
 # Start MoveIt2 Servo controller
 ros2 launch moveit_servo servo_example.launch.py > /var/log/moveit_servo.log 2>&1 &
-
+jobs
 # Function to handle SIGTERM sent by Docker stop command
 function shutdown {
     echo "Container stopping, terminating processes..."

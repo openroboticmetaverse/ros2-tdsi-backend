@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   tdsi_ros2_backend:
     container_name: tdsi_ros2_backend
@@ -10,12 +8,13 @@ services:
       - "9090:9090" # Default port for ROS2 bridge
     environment:
       - ROS_DOMAIN_ID=30 # Specify ROS2 Domain ID
-      - USER=0 
-      - GROUP=105
+      - DISPLAY=:0 # Enable X11 display
+      #- USER=0
+      #- GROUP=105
     tty: true
     devices:
       - "/dev/input/js0:/dev/input/js0" # Enable joystick
-      - "/dev/input/event23:/dev/input/event23" # Enable joystick
+      - "/dev/input/event17:/dev/input/event17" # Enable joystick
 
     networks:
       - tdsi-network
