@@ -24,6 +24,9 @@ git clone git@github.com:openroboticmetaverse/ros2-tdsi-backend.git
 cd ros2-tdsi-backend
 ```
 
+```bash
+./configure.sh
+```
 2. Docker Build and Compose 🐳
 
 ```bash

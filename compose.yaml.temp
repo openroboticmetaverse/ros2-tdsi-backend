@@ -13,8 +13,8 @@ services:
       #- GROUP=105
     tty: true
     devices:
-      - "/dev/input/event22:/dev/input/event22" # Enable joystick
-      - "/dev/input/js0:/dev/input/js0" # Enable joystick
+      - "JOYSTICK" # Enable joystick
+      - "EVENT" # Enable joystick
 
     networks:
       - tdsi-network
