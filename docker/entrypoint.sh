@@ -21,7 +21,7 @@ source install/setup.bash
 
 
 # Start ROSBridge WebSocket server
-ros2 launch rosbridge_server rosbridge_websocket_launch.xml > /var/log/rosbridge.log 2>&1 &
+ros2 launch rosbridge_server rosbridge_websocket_launch.xml port:=$ROSBRIDGE_PORT > /var/log/rosbridge.log 2>&1 &
 
 # Start MoveIt2 Servo controller
 ros2 launch $PACKAGE_NAME $LAUNCH_FILE > /var/log/$PACKAGE_NAME.log 2>&1 &
