@@ -24,14 +24,13 @@ git clone git@github.com:openroboticmetaverse/ros2-tdsi-backend.git
 cd ros2-tdsi-backend
 ```
 
+2. Run the following script to automatically determine joytick device ID 🕹️
+
 ```bash
 ./configure.sh
 ```
-2. Docker Build and Compose 🐳
 
-```bash
-docker compose build
-```
+3. Run Docker Compose 🐳
 
 ```bash
 docker compose up -d
@@ -39,4 +38,4 @@ docker compose up -d
 
 ## Usage 💻
 
-Access the WebSocket server at `ws://localhost:9090` to send and receive messages related to the robot's state.
+The WebSocket server is available at `ws://localhost:9090`.
