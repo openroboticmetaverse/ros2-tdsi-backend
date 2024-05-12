@@ -1,26 +1,36 @@
+# Service configuration for the TDSI ROS2 backend container
 services:
   tdsi_ros2_backend:
     container_name: tdsi_ros2_backend
+
     build:
+      # Directory containing the Dockerfile
       context: ./docker
       dockerfile: Dockerfile
+
+    # Map ports from the container to the host
     ports:
-      - "9090:9090" # Default port for ROS2 bridge
+      # Default port for ROS2 bridge (Change if necessary)
+      - "9090:9090"
+
+    # Environment variables
     environment:
-      - ROS_DOMAIN_ID=30 # Specify ROS2 Domain ID
-      - DISPLAY=:0 # Enable X11 display
-      #- USER=0
-      #- GROUP=105
+      # ROS2 Domain ID
+      - ROS_DOMAIN_ID=30
+      # ROSBridge port (Change if necessary)
+      - ROSBRIDGE_PORT=9090
+
+    # Enable TTY and allocate a pseudo-TTY
     tty: true
+
+    # Allow access to devices from the container
     devices:
-      - "JOYSTICK" # Enable joystick
-      - "EVENT" # Enable joystick
+      # Event device (e.g. joystick)
+      - "JOYSTICK"
+      # Joystick event
+      - "EVENT" 
 
+    # Networking configuration
     networks:
+      # Use the tdsi-network network
       - tdsi-network
-
-networks:
-  tdsi-network:
-    driver: bridge
-    name: tdsi-network # Specify a custom network name for clarity
-

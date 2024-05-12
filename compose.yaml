@@ -27,10 +27,14 @@ services:
     devices:
       # Event device (e.g. joystick)
       - "/dev/input/event25:/dev/input/event25"
-      # Joystick device (e.g. Logitech Gamepad F310)
+      # Joystick event
       - "/dev/input/js0:/dev/input/js0"
 
     # Networking configuration
     networks:
       # Use the tdsi-network network
       - tdsi-network
+networks:
+  tdsi-network:
+    driver: bridge
+    name: tdsi-network # Specify a custom network name for clarity
